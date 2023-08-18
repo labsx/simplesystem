@@ -25,8 +25,21 @@ class PostController extends Controller
         $valdiate['password']=bcrypt($validated['password']);
         $user = User::create($validated);
         auth()->login($user);  
-         return redirect('/')->with('title','Registration Success');
+         return redirect('/');
         
+
+    }
+
+    
+        public function process (Request $request){
+            $validated = $request->validate([
+        
+                "email" =>['required','email'] ,
+                "password" => ['required'],
+            ]);
+            if(auth()->attempt($validated))
+            $request->session()->regenerate();
+            return redirect('/index');  
 
     }
 }

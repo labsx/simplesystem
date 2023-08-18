@@ -15,8 +15,15 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return
+     view('login');
+});
+
+Route::get('/index', function () {
+    return view('index');
 });
 
 Route::get('/register', [PostController::class, 'register']);
 Route::post('/store', [PostController::class, 'store']);
+
+Route::post('/login/process',[PostController::class, 'process']);
