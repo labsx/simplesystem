@@ -27,7 +27,13 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Log in</div>
+                        <div class="card-header">Log in
+                            @if(session()->has('message'))
+                            <div class="alert alert-success text-center text-uppercase py-0" > 
+                            <p class="mt-3">{{session()->get('message')}}</p>
+                        </div>
+                        @endif
+                        </div>
                      
                         <div class="card-body">
                             <form action="/login/process" method="POST">

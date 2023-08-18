@@ -9,6 +9,8 @@ use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class PostController extends Controller
 {
@@ -30,26 +32,19 @@ class PostController extends Controller
             "first_name" => ['required', 'min:3'],
             "last_name" => ['required', 'min:3'],
             "email" =>['required','email', Rule::unique('users', 'email')] ,
-            "password" => ['required', 'min:4', 'max: 50'],
+            "password" => ['required', 'min:4', 'max: 50'], 
         ]);
         $valdiate['password']=bcrypt($validated['password']);
         $user = User::create($validated);
         auth()->login($user);  
-         return redirect('/');
+         return redirect('/')->with('message', 'Registration Success');
         
 
     }
 
     
         public function process (Request $request){
-            // $validated = $request->validate([
-        
-            //     "email" =>['required','email'] ,
-            //     "password" => ['required'],
-            // ]);
-            // if(auth()->attempt($validated))
-            // $request->session()->regenerate();
-            // return redirect('/index');  
+         
                 $validated = $request->validate([
         
                 "email" =>['required','email'] ,
@@ -78,9 +73,19 @@ class PostController extends Controller
         auth()->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        return redirect ('/');
        
+        return redirect ('/');
+
+        // Auth::logout();
+ 
+        // $request->session()->invalidate();
+    
+        // $request->session()->regenerateToken();
+    
+        // return redirect('/');
+        
+
+          
     }
 
 }

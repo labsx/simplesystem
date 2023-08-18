@@ -22,13 +22,13 @@ class StudentsController extends Controller
          
      ]);
      $student->update($validated);
-     return back();
+     return back()->with('message','Data successfully edited');
     }
 
     public function destroy(Students $student){
         // dd($student);
         $student->delete();
-         return redirect('/index');
+         return redirect('/index')->with('message','Data deleted successfully');
     }
 
     public function create (){
@@ -46,7 +46,7 @@ class StudentsController extends Controller
         ]);
      
         Students::create($validated);
-        return redirect('/index');
+        return redirect('/index')->with('message','Data added successfully');
          
     }
    

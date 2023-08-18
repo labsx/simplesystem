@@ -35,7 +35,7 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">First Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="name" class="form-control" name="first_name" required autofocus>
+                                        <input type="text" id="name" class="form-control" name="first_name" required autofocus value="{{old('first_name')}}">
                                     </div>
                                     <div class="col-md-7 col-form-label text-md-right text-danger   ">
                                         @error('first_name')
@@ -47,7 +47,7 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">Last Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="name" class="form-control" name="last_name" required autofocus>
+                                        <input type="text" id="name" class="form-control" name="last_name" required autofocus value="{{old('last_name')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-7 col-form-label text-md-right text-danger">
@@ -58,8 +58,8 @@
 
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">Gender</label>
-                                    <div class="col-md-6">
-                                        <select type="gender"  name="gender" class="col-md-12 col-form-label text-md-right">
+                                    <div class="col-md-6 text-left">
+                                        <select type="gender"  name="gender" class="col-md-12 col-form-label text-md-left">
                                             <option value=""{{old('gender') == "" ? 'selected': ''}}></option>
                                             <option value="Male" {{old('gender') == "Male" ? 'selected': ''}}>Male</option>
                                             <option value="Female" {{old('gender') == "Female" ? 'selected': ''}}>Female</option>
@@ -78,7 +78,7 @@
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email" class="form-control" name="email" required autofocus>
+                                        <input type="text" id="email" class="form-control" name="email" required autofocus value="{{old('email')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-7 col-form-label text-md-right text-danger">
@@ -88,13 +88,13 @@
                                 </div>
     
                                 <div class="form-group row">
-                                    <label for="password" class="col-md-4 col-form-label text-md-right">Age</label>
+                                    <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="password" class="form-control" name="age" required>
+                                        <input type="text" id="age" class="form-control" name="age" required value="{{old('age')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-7 col-form-label text-md-right text-danger">
-                                    @error('password')
+                                    @error('age')
                                      <p style="font-size: x-small">{{$message}}</p>
                                      @enderror
                                 </div>

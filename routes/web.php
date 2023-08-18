@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StudentsController;
@@ -32,4 +33,7 @@ Route::get('/add/student',[StudentsController::class, 'create']); //add new stud
 Route::post('/add/student',[StudentsController::class, 'store']); //store data from dbase
 
 Route::post('/logout',[PostController::class, 'logout']);
+
+
+
 

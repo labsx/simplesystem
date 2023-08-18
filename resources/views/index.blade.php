@@ -5,10 +5,17 @@
   <div> 
     <form action="/logout" method="POST">
       @csrf
-     <button type="submit" class="col-md-1  p-2 bg-primary rounded float-right mt-2">Log out</button>
+     <button type="submit" class="col-md-1  p-2 bg-primary rounded float-right mt-0">Log out</button>
     </form>
   </div>
-    <h1>Student List</h1>
+    <h1 class="text-center text-uppercase mt-3">Student List</h1>
+   
+      @if(session()->has('message'))
+          <div class="alert alert-success text-center text-uppercase py-0"> 
+          <p class="mt-3">{{session()->get('message')}}</p>
+     </div>
+      @endif
+   
     
   
     <table class="table table-striped table-dark mb-12">

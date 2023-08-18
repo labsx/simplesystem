@@ -1,10 +1,10 @@
 @include('components.header')
 
-    <body>
+    <body class="mt-5 ">
 
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="#">Laravel</a>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -16,7 +16,12 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">Edit</div>
-                        <div class="card-body">
+                            @if(session()->has('message'))
+                                <div class="alert alert-success text-center text-uppercase pt-1 py-0 " > 
+                                <p class="mt-3 ">{{session()->get('message')}}</p>
+                            </div>
+                            @endif
+                         <div class="card-body">
                            
 
                             <form action="/student/{{$student->id}}" method="POST">
@@ -72,7 +77,7 @@
                                 </div>
     
                               
-                                <div class="col-md-6 offset-md-4">
+                                <div class="col-md-3 float-right">
                                     <button type="submit" class="btn btn-primary">
                                        Edit
                                     </button>
