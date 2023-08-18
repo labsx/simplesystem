@@ -1,13 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+@include('components.header')
 <body>
+    <h1>Student List</h1>
   
-    <h1>Hello</h1>
-</body>
-</html>
+    <table class="table table-striped table-dark mb-12">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Age</th>
+          </tr>
+        </thead>
+        <tbody>
+            @foreach ($students as $student)
+          <tr>
+            
+                <td>{{ $student->first_name }} </td>
+                <td>{{ $student->last_name }} </td>
+                <td>{{ $student->email }} </td>
+                <td>{{ $student->age }} </td>
+          </tr>
+          @endforeach 
+        </tbody>
+
+      </table        {{$students->links()}}
+@include('components.footer')

@@ -7,9 +7,18 @@ use App\Models\User;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
+    public function login(){
+        return view ('/login');
+    }
+    public function index(){
+        $data = array("students" => DB::table('students')->orderBy('created_at', 'desc')->simplePaginate(10));
+        return view ('index', $data);
+    }
+
     public function register (){
     return view ('register');
     }
