@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/register', [PostController::class, 'register']);
+Route::post('/store', [PostController::class, 'store']);

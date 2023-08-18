@@ -1,4 +1,5 @@
 @include('components.header')
+
     <body>
     
     <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
@@ -29,12 +30,45 @@
                     <div class="card">
                         <div class="card-header">Register</div>
                         <div class="card-body">
-                            <form action="" method="">
+                           
+
+                            <form action="/store" method="POST">
+                                @csrf
                                 <div class="form-group row">
-                                    <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">First Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                        <input type="text" id="name" class="form-control" name="first_name" required autofocus>
                                     </div>
+                                    <div class="col-md-7 col-form-label text-md-right text-danger   ">
+                                        @error('first_name')
+                                         <p style="font-size: x-small">{{$message}}</p>
+                                         @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="name" class="form-control" name="last_name" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-form-label text-md-right text-danger">
+                                    @error('last_name')
+                                     <p style="font-size: x-small">{{$message}}</p>
+                                     @enderror
+                                </div>
+                             
+
+                                <div class="form-group row">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="email" class="form-control" name="email" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-form-label text-md-right text-danger">
+                                    @error('email')
+                                     <p style="font-size: x-small">{{$message}}</p>
+                                     @enderror
                                 </div>
     
                                 <div class="form-group row">
@@ -43,24 +77,18 @@
                                         <input type="password" id="password" class="form-control" name="password" required>
                                     </div>
                                 </div>
-    
-                                <div class="form-group row">
-                                    <div class="col-md-6 offset-md-4">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" name="remember"> Remember Me
-                                            </label>
-                                        </div>
-                                    </div>
+                                <div class="col-md-7 col-form-label text-md-right text-danger">
+                                    @error('password')
+                                     <p style="font-size: x-small">{{$message}}</p>
+                                     @enderror
                                 </div>
     
+                              
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         Register
                                     </button>
-                                    <a href="#" class="btn btn-link">
-                                        Forgot Your Password?
-                                    </a>
+                                    
                                 </div>
                         </div>
                         </form>

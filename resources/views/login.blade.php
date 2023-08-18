@@ -27,13 +27,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Register</div>
+                        <div class="card-header">Log in</div>
+                     
                         <div class="card-body">
-                            <form action="" method="">
+                            <form action="/login/process" method="POST">
                                 <div class="form-group row">
                                     <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="email_address" class="form-control" name="email-address" required autofocus>
+                                        <input type="text" id="email_address" class="form-control" name="email" required autofocus>
                                     </div>
                                 </div>
     
@@ -58,9 +59,7 @@
                                     <button type="submit" class="btn btn-primary">
                                         Register
                                     </button>
-                                    <a href="#" class="btn btn-link">
-                                        Forgot Your Password?
-                                    </a>
+                                   
                                 </div>
                         </div>
                         </form>
