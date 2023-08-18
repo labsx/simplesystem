@@ -42,14 +42,35 @@ class PostController extends Controller
 
     
         public function process (Request $request){
-            $validated = $request->validate([
+            // $validated = $request->validate([
+        
+            //     "email" =>['required','email'] ,
+            //     "password" => ['required'],
+            // ]);
+            // if(auth()->attempt($validated))
+            // $request->session()->regenerate();
+            // return redirect('/index');  
+                $validated = $request->validate([
         
                 "email" =>['required','email'] ,
                 "password" => ['required'],
             ]);
-            if(auth()->attempt($validated))
+            if(auth()->attempt($validated)){
             $request->session()->regenerate();
             return redirect('/index');  
+            }else{
+                return view ('/login');;
+            }
+            // $email = $request->email;
+            // $password = $request->password;
+            
+       
+            // if (auth()->attempt(array('email' => $email , 'password' => $password ))){
+            //     return view ('/index');
+            //  } else {        
+            //     return view ('/login');;
+            //  }  
+            
 
     }
 
@@ -59,6 +80,7 @@ class PostController extends Controller
         $request->session()->regenerateToken();
 
         return redirect ('/');
+       
     }
 
 }

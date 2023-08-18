@@ -16,12 +16,12 @@ use App\Http\Controllers\StudentsController;
 */
 
 Route::get('/', [PostController::class, 'login']); 
+Route::post('/login/process',[PostController::class, 'process']); //login your data
 Route::get('/index', [PostController::class, 'index']);
 
 Route::get('/register', [PostController::class, 'register']);
 Route::post('/store', [PostController::class, 'store']);  //add data from dbase
 
-Route::post('/login/process',[PostController::class, 'process']); //login your data
 
 Route::get('/student/{student}',[StudentsController::class, 'show']); // show data from dbase
 Route::put('/student/{student}',[StudentsController::class, 'update']); //update data from dbase
