@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Students;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class StudentsController extends Controller
 {
@@ -28,6 +29,25 @@ class StudentsController extends Controller
         // dd($student);
         $student->delete();
          return redirect('/index');
+    }
+
+    public function create (){
+        return view ('addstudent');
+    }
+
+    public function store(Request $request){
+        $validated = $request->validate([
+            "first_name" => ['required', 'min:4'],
+            "last_name" => ['required', 'min:4'],
+            "gender" => ['required', 'min:4'],
+            "age" => ['required'],
+            "email" =>['required','email', Rule::unique('students', 'email')] ,
+            
+        ]);
+     
+        Students::create($validated);
+        return redirect('/index');
+         
     }
    
 }
