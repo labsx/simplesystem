@@ -9,6 +9,7 @@
             <th scope="col">Last Name</th>
             <th scope="col">Email</th>
             <th scope="col">Age</th>
+            <th>Manage</th>
           </tr>
         </thead>
         <tbody>
@@ -19,9 +20,14 @@
                 <td>{{ $student->last_name }} </td>
                 <td>{{ $student->email }} </td>
                 <td>{{ $student->age }} </td>
+                <td>
+                    <a href="/student/{{$student->id}}" class="link-primary">view</a>
+                </td>
           </tr>
           @endforeach 
         </tbody>
 
-      </table        {{$students->links()}}
+      </table        
+     
+      {{$students->links()}}
 @include('components.footer')

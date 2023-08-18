@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Admin;
+use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
@@ -51,4 +52,5 @@ class PostController extends Controller
             return redirect('/index');  
 
     }
+
 }

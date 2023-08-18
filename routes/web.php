@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\StudentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,9 @@ Route::get('/register', [PostController::class, 'register']);
 Route::post('/store', [PostController::class, 'store']);
 
 Route::post('/login/process',[PostController::class, 'process']);
+
+Route::get('/student/{student}',[StudentsController::class, 'show']); 
+Route::put('/student/{student}',[StudentsController::class, 'update']); 
+
+Route::delete('/student/{student}', [StudentsController::class, 'destroy']);
+
